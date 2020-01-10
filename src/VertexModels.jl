@@ -2,8 +2,6 @@ __precompile__(true)
 
 module VertexModels
 
-import Graphics2D
-
 export RandGenerator, 
        Orientation,
        maxorientation,
@@ -101,6 +99,7 @@ function neighbors(i::Integer,j::Integer,m::Integer,n::Integer)
     return nbs
 end
 
+"""
 function picture(filename::AbstractString,h::Orientation;kwargs...)
     m,n = size(h)
     return Graphics2D.showgraphics(filename,
@@ -121,6 +120,7 @@ function picture(h::Orientation;show=true,kwargs...)
 	arrowsize=0.2,arrowloc=0.6,kwargs...) for e in keys(h)]
     end
 end
+"""
     
 function issource(O::Orientation,i::Integer,j::Integer)
     m,n = size(O)
@@ -180,6 +180,7 @@ function height(O::Orientation)
     return [D[i,j] for i=1:m,j=1:n]
 end
 
+"""
 function picture(D::Dict{Tuple{Int64,Int64},Int64})
     m = maximum([m for (m,n) in keys(D)])
     n = maximum([n for (m,n) in keys(D)])
@@ -189,6 +190,7 @@ function picture(D::Dict{Tuple{Int64,Int64},Int64})
     end
     return grlist
 end
+"""
 
 function pushup!(h::Orientation,i::Integer,j::Integer)::Bool
     pushdown!(h,i,j,true)
