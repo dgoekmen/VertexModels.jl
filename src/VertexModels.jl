@@ -13,7 +13,7 @@ export RandGenerator,
        pushdown!, 
        pushup!
 
-type RandGenerator
+mutable struct RandGenerator
     D::Dict{Int64,Tuple{Int64,Int64,Bool}}
     m::Int64
     n::Int64
@@ -48,7 +48,7 @@ function sample(R::RandGenerator,t::Integer)
     end
 end
 
-type Orientation
+mutable struct Orientation
     D::Dict{Tuple{Tuple{Int64,Int64},Tuple{Int64,Int64}},Int64}
     m::Int64
     n::Int64
@@ -256,3 +256,4 @@ end
 
 
 end # module
+
